@@ -39,4 +39,9 @@ public class Course {
 	cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH})
 	@Column
 	List<Student> students = new ArrayList<>();
+
+	public List<Student> getStudent() {
+		// TODO Auto-generated method stub
+		return students;
+	}
 }
