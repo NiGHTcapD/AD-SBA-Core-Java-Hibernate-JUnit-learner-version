@@ -17,7 +17,6 @@ public class StudentService implements StudentI {
 
 	@Override
 	public List<Student> getAllStudents() {
-		// TODO Auto-generated method stub
 		Transaction tx = null;
 		List<Student> sss = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -37,7 +36,6 @@ public class StudentService implements StudentI {
 
 	@Override
 	public void createStudent(Student student) {
-		// TODO Auto-generated method stub
 		Transaction tx = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
@@ -57,7 +55,6 @@ public class StudentService implements StudentI {
 
 	@Override
 	public Student getStudentByEmail(String email) {
-		// TODO Auto-generated method stub
 		Transaction tx = null;
 		Student s = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -78,7 +75,6 @@ public class StudentService implements StudentI {
 
 	@Override
 	public boolean validateStudent(String email, String password) {
-		// TODO Auto-generated method stub
 		Transaction tx = null;
 		boolean match = false;
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -99,7 +95,6 @@ public class StudentService implements StudentI {
 
 	@Override
 	public void registerStudentToCourse(String email, int courseId) {
-		// TODO Auto-generated method stub
 		Transaction tx = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
@@ -121,7 +116,6 @@ public class StudentService implements StudentI {
 
 	@Override
 	public List<Course> getStudentCourses(String email) {
-		// TODO Auto-generated method stub
 		Transaction tx = null;
 		List<Course> result = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
