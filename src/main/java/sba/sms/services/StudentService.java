@@ -22,8 +22,7 @@ public class StudentService implements StudentI {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			sss = session.createQuery("from student", Student.class).getResultList();
-		} catch(
-		HibernateException ex){
+		} catch(HibernateException ex){
 			ex.printStackTrace();
 			
 			
@@ -44,8 +43,7 @@ public class StudentService implements StudentI {
 			session.persist(student);
 			tx.commit();
 
-		} catch(
-		HibernateException ex){
+		} catch(HibernateException ex){
 			ex.printStackTrace();
 			tx.rollback();
 		}finally {
@@ -61,8 +59,7 @@ public class StudentService implements StudentI {
 		try {
 		 s = session.get(Student.class, email);
 		
-		} catch(
-		HibernateException ex){
+		} catch(HibernateException ex){
 			ex.printStackTrace();
 			
 			
@@ -80,11 +77,11 @@ public class StudentService implements StudentI {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			Student s = session.get(Student.class, email);
+			if (s == null) {return match;}
 			tx = session.beginTransaction();
 			String p = s.getPassword();
 			if (password.equals(p)) {match = true;}
-		} catch(
-		HibernateException ex){
+		} catch(HibernateException ex){
 			ex.printStackTrace();
 			tx.rollback();
 		}finally {
@@ -105,8 +102,7 @@ public class StudentService implements StudentI {
 			session.merge(s);
 			tx.commit();
 
-		} catch(
-		HibernateException ex){
+		} catch(HibernateException ex){
 			ex.printStackTrace();
 			tx.rollback();
 		}finally {
@@ -121,14 +117,13 @@ public class StudentService implements StudentI {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			tx = session.beginTransaction();
-			Query<Student> q = session.createQuery("SELECT s FROM student s WHERE s.email = :emailId", Student.class)
-					.setParameter("emailId", email);
+			Query<Student> q = session.createQuery("FROM Student WHERE email = :emailId", Student.class);
+					q.setParameter("emailId", email);
 			Student s = q.getSingleResult();
             result = s.getCourse();
 			tx.commit();
 
-		} catch(
-		HibernateException ex){
+		} catch(HibernateException ex){
 			ex.printStackTrace();
 			tx.rollback();
 		}finally {

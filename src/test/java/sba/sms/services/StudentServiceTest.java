@@ -4,6 +4,8 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import sba.sms.models.Course;
 import sba.sms.models.Student;
 import sba.sms.utils.CommandLine;
 
@@ -37,5 +39,14 @@ class StudentServiceTest {
 
         assertThat(studentService.getAllStudents()).hasSameElementsAs(expected);
 
+    }
+    
+    @Test
+    void getStudentCourses(){
+    	
+    	List<Course> expected = new ArrayList<>(Arrays.asList());
+    	assertThat(studentService.getStudentCourses("reema@gmail.com")).hasSameElementsAs(expected);
+    	
+    	
     }
 }

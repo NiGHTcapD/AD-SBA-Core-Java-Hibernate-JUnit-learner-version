@@ -22,8 +22,7 @@ public class CourseService implements CourseI  {
 			session.persist(course);
 			tx.commit();
 
-		} catch(
-		HibernateException ex){
+		} catch(HibernateException ex){
 			ex.printStackTrace();
 			tx.rollback();
 		}finally {
@@ -39,8 +38,7 @@ public class CourseService implements CourseI  {
 		try {
 		 c = session.get(Course.class, courseId);
 		
-		} catch(
-		HibernateException ex){
+		} catch(HibernateException ex){
 			ex.printStackTrace();
 			
 			
@@ -57,9 +55,8 @@ public class CourseService implements CourseI  {
 		List<Course> ccc = null;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
-			ccc = session.createQuery("from course", Course.class).getResultList();
-		} catch(
-		HibernateException ex){
+			ccc = session.createQuery("from Course", Course.class).getResultList();
+		} catch(HibernateException ex){
 			ex.printStackTrace();
 			
 			
