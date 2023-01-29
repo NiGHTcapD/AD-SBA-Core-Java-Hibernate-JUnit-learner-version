@@ -49,4 +49,25 @@ class StudentServiceTest {
     	
     	
     }
+    
+    @Test
+    void validateStudent1() {
+    	//boolean expected = false;
+    	assertThat(!studentService.validateStudent("reema@gmail.com", "narpas sword"));
+    }
+    
+    @Test
+    void validateStudent2() {
+    	//boolean expected = true;
+    	assertThat(studentService.validateStudent("reema@gmail.com", "password"));
+    }
+    
+    @Test
+    void validateStudent3() {
+    	//boolean expected = false;
+    	assertThat(!studentService.validateStudent("aaaaa@aaaaa.aaa", "no matter"));
+    }
+    
+    
+    
 }
