@@ -82,7 +82,7 @@ public class StudentService implements StudentI {
 			Student s = session.get(Student.class, email);
 			tx = session.beginTransaction();
 			String p = s.getPassword();
-			if (password == p) {match = true;}
+			if (password.equals(p)) {match = true;}
 		} catch(
 		HibernateException ex){
 			ex.printStackTrace();
@@ -121,7 +121,7 @@ public class StudentService implements StudentI {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			tx = session.beginTransaction();
-			Query<Student> q = session.createQuery("SELECT email FROM student, course WHERE student.email =: emailId", Student.class)
+			Query<Student> q = session.createQuery("SELECT s FROM student s WHERE s.email = :emailId", Student.class)
 					.setParameter("emailId", email);
 			Student s = q.getSingleResult();
             result = s.getCourse();

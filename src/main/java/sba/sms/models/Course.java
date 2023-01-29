@@ -8,6 +8,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
@@ -31,6 +32,7 @@ import lombok.ToString.Exclude;
 public class Course {
 	@Id
 	@Column
+	@GeneratedValue
 	int id;
 	@NonNull
 	@Column(length = 50)
@@ -46,10 +48,10 @@ public class Course {
 	@Column
 	List<Student> students = new ArrayList<>();
 
-	public Course(String courseName, String instructorName) {
-		name=courseName;
-		instructor=instructorName;
-	}
+	//public Course(String courseName, String instructorName) {
+	//	name=courseName;
+	//	instructor=instructorName;
+	//}
 
 
 	public int getId() {
