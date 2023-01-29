@@ -21,8 +21,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.ToString.Exclude;
 
-@Getter
-@Setter
+
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
@@ -48,10 +47,6 @@ public class Course {
 	@Column
 	List<Student> students = new ArrayList<>();
 
-	//public Course(String courseName, String instructorName) {
-	//	name=courseName;
-	//	instructor=instructorName;
-	//}
 
 
 	public int getId() {

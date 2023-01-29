@@ -22,8 +22,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.ToString.Exclude;
 
-@Getter
-@Setter
+
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
