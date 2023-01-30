@@ -98,10 +98,11 @@ public class StudentService implements StudentI {
 			Student s = session.get(Student.class, email);
 			Course c = session.get(Course.class, courseId);
 			tx = session.beginTransaction();
-			s.addCourse(c);
-			session.merge(s);
-			tx.commit();
-
+			if (!s.getCourse().contains(c)) {
+				s.addCourse(c);
+				session.merge(s);
+				tx.commit();
+			}
 		} catch(HibernateException ex){
 			ex.printStackTrace();
 			tx.rollback();
